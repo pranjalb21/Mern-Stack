@@ -20,6 +20,7 @@ export const EditExercise = () => {
     async function fetchData() {
       let res = await axios.get("http://localhost:5000/exercises/" + id);
       setExercise({
+        ...exercise,
         username: res.data.username,
         description: res.data.description,
         duration: res.data.duration,

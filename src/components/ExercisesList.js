@@ -4,15 +4,14 @@ import { Exercise } from "./Exercise";
 
 export const ExercisesList = () => {
   const [exercises, setExercises] = useState([]);
-  const val=1
 
   useEffect(() => {
     async function fetchData() {
-      await axios.get("http://localhost:5000/exercises/")
-        .then(res => setExercises(res.data))
+      let res = await axios.get("http://localhost:5000/exercises/");
+      setExercises(res.data);
     }
     fetchData();
-  }, [val]);
+  }, []);
 
   const deleteExercise = (id) => {
     axios

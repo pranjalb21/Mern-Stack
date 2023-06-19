@@ -19,6 +19,7 @@ export const CreateExercise = () => {
       await axios.get("http://localhost:5000/users").then((res) => {
         if (res.data.length > 0)
           setExercise({
+            ...exercise,
             users: res.data.map((user) => user.username),
             username: res.data[0].username,
           });
